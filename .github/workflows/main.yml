@@ -16,7 +16,7 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.x # Jekyll sürümünüze uygun Ruby sürümünü seçin.
+        ruby-version: 3.x # Jekyll sürümünüze uygun Ruby sürümünü seçin.
 
     - name: Install Dependencies
       run: |
