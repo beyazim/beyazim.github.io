@@ -1,0 +1,23 @@
+name: GitHub Actions Örneği
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Dosya Oluştur ve Güncelle
+      run: |
+        echo "Merhaba, GitHub Actions!" > hello.txt
+        git config --global user.email "your.email@example.com"
+        git config --global user.name "Your Name"
+        git add hello.txt
+        git commit -m "GitHub Actions ile dosya oluşturuldu veya güncellendi"
+        git push --force "https://${{ secrets.MY_TOKEN }}@github.com/${{ github.repository }}.git" main
