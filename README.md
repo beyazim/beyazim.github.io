@@ -1,1 +1,0 @@
-# beyazim.github.io
