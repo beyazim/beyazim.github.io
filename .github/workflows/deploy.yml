@@ -29,6 +29,8 @@ jobs:
 
     - name: Deploy to GitHub Pages
       run: |
+        git config --global user.email "beyaziesra@gmail.com"
+        git config --global user.name "Esra Yılmaz"
         cd _site
         git init
         git add .
