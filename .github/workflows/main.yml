@@ -36,4 +36,4 @@ jobs:
         git init
         git add .
         git commit -m "Deployed using GitHub Actions"
-        git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
+        git push --force --quiet "https://${{ secrets.GITHUB_TOKENN }}@github.com/${{ github.repository }}.git" main:gh-pages
