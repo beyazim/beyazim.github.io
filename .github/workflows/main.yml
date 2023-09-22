@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Değiştirin: Eğer farklı bir ana dal kullanıyorsanız, burayı o dala uygun olarak güncelleyin.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.x # Jekyll sürümünüze uygun Ruby sürümünü seçin.
+
+    - name: Install Dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Build Jekyll Site
+      run: |
+        bundle exec jekyll build
+
+    - name: Deploy to GitHub Pages
+      run: |
+        #git config --global user.email "your.email@example.com"
+        #git config --global user.name "Your Name"
+        cd _site
+        git init
+        git add .
+        git commit -m "Deployed using GitHub Actions"
+        git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" master:gh-pages
