@@ -30,10 +30,10 @@ jobs:
     - name: Deploy to GitHub Pages
       run: |
         git config --global init.defaultBranch main
-        git config --global user.email "your.email@example.com"
-        git config --global user.name "Your Name"
+        #git config --global user.email "your.email@example.com"
+        #git config --global user.name "Your Name"
         cd _site
         git init
         git add .
         git commit -m "Deployed using GitHub Actions"
-        git push --force --quiet "https://${{ secrets.GITHUB_TOKENN }}@github.com/${{ github.repository }}.git" main:gh-pages
+        git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
