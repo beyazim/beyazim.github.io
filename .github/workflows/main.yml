@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Değiştirin: Eğer farklı bir ana dal kullanıyorsanız, burayı o dala uygun olarak güncelleyin.
+      - main 
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.x # Jekyll sürümünüze uygun Ruby sürümünü seçin.
+        ruby-version: 4.3.2
 
     - name: Install Dependencies
       run: |
